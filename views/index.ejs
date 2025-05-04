@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="hero">
+    <h1>FenoW2G ile Birlikte İzle</h1>
+    <p>Bir oda oluştur, bağlantıyı arkadaşlarınla paylaş ve videoları gerçek zamanlı olarak birlikte izleyin. Tüm video kontrolleri tüm izleyicilerle senkronize edilir.</p>
+    
+    <div class="username-form">
+      <input type="text" id="username-input" class="username-input" placeholder="Kullanıcı adınızı girin" required maxlength="20">
+      <form id="create-room-form" action="/create-room" method="post">
+        <input type="hidden" id="username-hidden" name="username" value="">
+        <button id="create-room-btn" type="button" class="btn">Oda Oluştur</button>
+      </form>
+    </div>
+    
+    <div class="browser-info">
+      <h3>Tarayıcı Bilgileriniz</h3>
+      <p>
+        <span class="browser-icon-container"></span>
+        <strong><%= browserInfo.browser %> <%= browserInfo.version %></strong> 
+        tarayıcısını <strong><%= browserInfo.os %></strong> 
+        (<%= browserInfo.platform %>) üzerinde kullanıyorsunuz.
+        <% if (browserInfo.isMobile) { %>
+          (Mobil Cihaz)
+        <% } else { %>
+          (Masaüstü)
+        <% } %>
+      </p>
+    </div>
+  </div>
+  
+  <div class="features">
+    <div class="container">
+      <div class="feature">
+        <h2>Senkronize Video</h2>
+        <p>Bir kişi duraklattığında, ileri sardığında veya oynatma başlattığında, herkesin videosu otomatik olarak senkronize olur.</p>
+      </div>
+      
+      <div class="feature">
+        <h2>Arkadaşlarınla Sohbet Et</h2>
+        <p>Dahili sohbet özelliği, izlerken arkadaşlarınla gerçek zamanlı tartışmalar yapmanı sağlar.</p>
+      </div>
+      
+      <div class="feature">
+        <h2>Çoklu Video Desteği</h2>
+        <p>YouTube, Vimeo, Dailymotion ve diğer popüler video sitelerini destekler. Link paylaş ve birlikte izle!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const createRoomBtn = document.getElementById('create-room-btn');
+    const usernameInput = document.getElementById('username-input');
+    const usernameHidden = document.getElementById('username-hidden');
+    const createRoomForm = document.getElementById('create-room-form');
+    
+    // Sayfa yüklendiğinde depolanan kullanıcı adını kontrol et
+    const savedUsername = localStorage.getItem('fenow2g_username');
+    if (savedUsername) {
+      usernameInput.value = savedUsername;
+    }
+    
+    createRoomBtn.addEventListener('click', function() {
+      const username = usernameInput.value.trim();
+      
+      if (!username) {
+        alert('Lütfen bir kullanıcı adı girin!');
+        usernameInput.focus();
+        return;
+      }
+      
+      // Kullanıcı adını depolamaya kaydet
+      localStorage.setItem('fenow2g_username', username);
+      
+      // Gizli input'a kullanıcı adını ata
+      usernameHidden.value = username;
+      
+      // Formu gönder
+      createRoomForm.submit();
+    });
+    
+    // Enter tuşuyla gönderme
+    usernameInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        createRoomBtn.click();
+      }
+    });
+  });
+</script> 

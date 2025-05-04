@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FenoW2G - Birlikte Video İzle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/main.js"></script>
+  <% if (typeof roomId !== 'undefined') { %>
+    <script src="/js/youtube-sync.js"></script>
+    <script src="/js/room.js"></script>
+  <% } %>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="/" class="logo">
+          <div class="browser-icon-container"></div>
+          <span>FenoW2G</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/">Ana Sayfa</a></li>
+          <li><a href="/about">Hakkında</a></li>
+          <li><a href="https://github.com/fenokingtr/FenoW2G" target="_blank">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <%- body %>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>FenoW2G - Arkadaşlarınla birlikte video izle. Tarayıcınız: <span class="browser-name"><%= browserInfo.browser %></span></p>
+    </div>
+  </footer>
+</body>
+</html> 

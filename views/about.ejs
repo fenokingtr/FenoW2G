@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="about-section">
+    <h1>FenoW2G Hakkında</h1>
+    <p>FenoW2G, kullanıcıların gerçek zamanlı olarak birlikte video izlemesine olanak tanıyan w2g.tv'den esinlenilmiş bir web uygulamasıdır. Platformumuz, şık bir siyah-kırmızı tema ile tarayıcı algılama özelliği içerir ve deneyiminizi optimize eder.</p>
+    
+    <h2>Nasıl Çalışır</h2>
+    <p>Bir oda oluşturduğunuzda, arkadaşlarınızla paylaşabileceğiniz benzersiz bir URL alırsınız. Katıldıklarında, tüm video kontrolleri (oynatma, duraklatma, ileri sarma) tüm izleyiciler arasında senkronize edilir. Bu, bir kişi videoyu duraklatırsa, herkes için duraklatılacağı anlamına gelir.</p>
+    
+    <h2>Özellikler</h2>
+    <ul>
+      <li><strong>Video Senkronizasyonu:</strong> Oynatma, duraklatma ve ileri sarma işlemleri gerçek zamanlı olarak senkronize edilir.</li>
+      <li><strong>Sohbet Sistemi:</strong> Video izlerken diğer izleyicilerle sohbet edebilirsiniz.</li>
+      <li><strong>Tarayıcı Algılama:</strong> Uygulama tarayıcınızı tanımlar ve bu bilgiyi görüntüler.</li>
+      <li><strong>YouTube Desteği:</strong> YouTube videolarını birlikte izleyin veya doğrudan video bağlantıları kullanın.</li>
+      <li><strong>Mobil Uyumlu:</strong> Hem masaüstü hem de mobil cihazlarda çalışır.</li>
+    </ul>
+    
+    <h2>Tarayıcı Bilgileri</h2>
+    <div class="browser-info">
+      <h3>Tarayıcı Detaylarınız</h3>
+      <p>
+        <span class="browser-icon-container"></span>
+        <strong><%= browserInfo.browser %> <%= browserInfo.version %></strong> 
+        tarayıcısını <strong><%= browserInfo.os %></strong> 
+        (<%= browserInfo.platform %>) üzerinde kullanıyorsunuz.
+        <% if (browserInfo.isMobile) { %>
+          (Mobil Cihaz)
+        <% } else { %>
+          (Masaüstü)
+        <% } %>
+      </p>
+    </div>
+    
+    <h2>Kullanılan Teknolojiler</h2>
+    <p>FenoW2G aşağıdaki teknolojilerle oluşturulmuştur:</p>
+    <ul>
+      <li>Node.js ve Express (backend için)</li>
+      <li>Socket.IO (gerçek zamanlı iletişim için)</li>
+      <li>EJS (şablonlama için)</li>
+      <li>Vanilla JavaScript (frontend için)</li>
+      <li>CSS3 (duyarlı tasarımlı stil için)</li>
+    </ul>
+    
+    <div class="cta-section">
+      <h2>Birlikte İzlemeye Hazır mısın?</h2>
+      <a href="/" class="btn">Oda Oluştur</a>
+    </div>
+  </div>
+</div> 

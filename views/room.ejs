@@ -1,0 +1,59 @@
+<input type="hidden" id="room-id" value="<%= roomId %>">
+
+<div class="container">
+  <div class="room-header">
+    <h2>Oda: <%= roomId %></h2>
+    <p>Birlikte izlemek için bu URL'yi arkadaşlarınla paylaş: <strong><span id="room-url"><%= `${req.protocol}://${req.get('host')}/room/${roomId}` %></span></strong>
+      <button class="btn" id="copy-url-btn" onclick="copyRoomUrl()">Kopyala</button>
+    </p>
+  </div>
+  
+  <div class="room-container">
+    <div class="video-chat-container">
+      <div class="video-container">
+        <video id="video-player" controls></video>
+      </div>
+      
+      <div class="video-controls">
+        <input type="text" id="video-url" class="video-url-input" placeholder="YouTube URL'si veya doğrudan video bağlantısı girin">
+        <button id="change-video-btn" class="btn">Videoyu Değiştir</button>
+      </div>
+      
+      <div class="video-status">
+        <p id="sync-status">Senkronizasyon: <span class="status-indicator active">Aktif</span></p>
+      </div>
+      
+      <div class="chat-container">
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input-container">
+          <input type="text" id="chat-input" class="chat-input" placeholder="Bir mesaj yazın...">
+          <button id="send-message-btn" class="btn">Gönder</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="users-container">
+      <h3>Bağlı Kullanıcılar</h3>
+      <ul id="users-list" class="users-list"></ul>
+      
+      <div class="browser-info">
+        <h3>Tarayıcınız</h3>
+        <p>
+          <span class="browser-icon-container"></span>
+          <strong><%= browserInfo.browser %> <%= browserInfo.version %></strong> kullanıyorsunuz
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function copyRoomUrl() {
+    const roomUrl = document.getElementById('room-url').textContent;
+    navigator.clipboard.writeText(roomUrl).then(() => {
+      alert('Oda URL\'si panoya kopyalandı!');
+    }).catch(err => {
+      console.error('Metin kopyalanamadı: ', err);
+    });
+  }
+</script> 
