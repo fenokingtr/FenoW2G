@@ -23,7 +23,7 @@ FenoW2G, kullanıcıların gerçek zamanlı olarak birlikte video izlemesine ola
 
 1. Depoyu klonlayın:
 ```
-git clone https://github.com/yourusername/FenoW2G.git
+git clone https://github.com/fenokingtr/FenoW2G.git
 cd FenoW2G
 ```
 
